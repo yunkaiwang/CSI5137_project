@@ -10,7 +10,7 @@ public class TabuSearch implements Algorithm {
 	
 	private static final int MAX_TABULIST_SIZE = 100;
 	private static final int NUMBER_ITERATION = 2000;
-	private static final int NUM_NEIGHBORS = 100;
+	private static final int NUM_NEIGHBORS = 10;
 	protected Route bestRoute = null;
 	private ArrayList<Double> tabuList;
 	

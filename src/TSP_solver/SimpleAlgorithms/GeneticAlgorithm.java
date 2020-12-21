@@ -32,6 +32,7 @@ public class GeneticAlgorithm implements Algorithm {
 		return initialPool;
 	}
 	
+	@SuppressWarnings("unused")
 	private ArrayList<Route> selection(ArrayList<Route> pool) throws SolveTSPFailedException {
 		ArrayList<Route> matingPool = new ArrayList<Route>();
 		
@@ -71,7 +72,7 @@ public class GeneticAlgorithm implements Algorithm {
 		while (!pq.isEmpty())
 			matingPool.add(pq.poll());
 		
-		System.out.println("Average fitness is " + totalFitness/pool_size + ", average mating pool average is " + matingPoolFitness/mating_pool_size);
+//		System.out.println("Average fitness is " + totalFitness/pool_size + ", average mating pool average is " + matingPoolFitness/mating_pool_size);
 		
 		return matingPool;
 	}
