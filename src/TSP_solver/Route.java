@@ -185,4 +185,29 @@ public class Route implements Comparable<Route> {
 		
 		return swaps;
 	}
+	
+	public static Route getNeighbor(Route r) throws SolveTSPFailedException {
+		Integer[] order = r.getOrderDeepCopy();
+		int index1 = 0, index2 = 0;
+		while (index1==index2) {
+			index1 = rand.nextInt(order.length);
+			index2 = rand.nextInt(order.length);
+		}
+
+		int temp = order[index2];
+		order[index2] = order[index1];
+		order[index1] = temp;
+		
+		return new Route(order, r.getCities());
+	}
+	
+	public static ArrayList<Route> getNeighbors(Route r, int num_neighbors) throws SolveTSPFailedException {
+		ArrayList<Route> neighbors = new ArrayList<Route>();
+		
+		while (neighbors.size() < num_neighbors) {
+			neighbors.add(getNeighbor(r));
+		}
+		
+		return neighbors;
+	}
 }

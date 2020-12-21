@@ -33,6 +33,10 @@ public class TSPSolver {
 				al = new SimulatedAnnealing();
 				al_st = "Simulated Annealing";
 			}
+			else if (args[0].equalsIgnoreCase("ts")) {
+				al = new TabuSearch();
+				al_st = "Tabu Search";
+			}
 			else if (args[0].equalsIgnoreCase("ca1")) {
 				al = new CombinedAlgorithm1();
 				al_st = "Combined Algorithm #1 (Hill Climb + GA)";

@@ -23,24 +23,6 @@ public class HillClimb implements Algorithm {
 		return this.bestRoute;
 	}
 	
-	private static ArrayList<Route> getNeighbors(Route r) throws SolveTSPFailedException {
-		ArrayList<Route> neighbors = new ArrayList<Route>();
-		
-		while (neighbors.size() < num_neighbors) {
-			Integer[] order = r.getOrderDeepCopy();
-			int index1 = rand.nextInt(order.length);
-			int index2 = rand.nextInt(order.length);
-			int temp = order[index2];
-			order[index2] = order[index1];
-			order[index1] = temp;
-		
-			neighbors.add(new Route(order, r.getCities()));
-		}
-		
-		
-		return neighbors;
-	}
-	
 	public int hillClimb(Route startRoute, int remainingIterations) throws SolveTSPFailedException {
 		ArrayList<Route> neighbors = null;
 		Route currentRoute = startRoute;
@@ -52,7 +34,7 @@ public class HillClimb implements Algorithm {
 			}
 			
 			improvedOverLastIteration = false;
-			neighbors = getNeighbors(currentRoute);
+			neighbors = Route.getNeighbors(currentRoute, num_neighbors);
 			
 			for (Route r: neighbors) {
 				if (r.compareTo(currentRoute) > 0) {

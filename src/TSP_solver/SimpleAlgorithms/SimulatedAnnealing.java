@@ -36,27 +36,12 @@ public class SimulatedAnnealing implements Algorithm {
 		return Math.exp((f1-f2)/temp);
 	}
 	
-	private static Route getNeighbor(Route r) throws SolveTSPFailedException {
-		Integer[] order = r.getOrderDeepCopy();
-		int index1 = 0, index2 = 0;
-		while (index1==index2) {
-			index1 = rand.nextInt(order.length);
-			index2 = rand.nextInt(order.length);
-		}
-
-		int temp = order[index2];
-		order[index2] = order[index1];
-		order[index1] = temp;
-		
-		return new Route(order, r.getCities());
-	}
-	
 	public Route simulatedAnnealing(Route startRoute) throws SolveTSPFailedException {
 		double temp = start_temp;
 		Route currentRoute = startRoute, currentBestRoute = null;
 		
 		while (temp > 1) {
-			Route neighbor = getNeighbor(currentRoute);
+			Route neighbor = Route.getNeighbor(currentRoute);
 			if (rand.nextDouble() < probability(-currentRoute.getFitness(), -neighbor.getFitness(), temp)) {
 				currentRoute = neighbor;
 			}
