@@ -1,4 +1,4 @@
-package TSP_solver.PCO;
+package TSP_solver.PSO;
 
 import java.util.ArrayList;
 import java.util.Random;

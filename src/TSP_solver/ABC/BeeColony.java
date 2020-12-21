@@ -1,4 +1,4 @@
-package TSP_solver.BCO;
+package TSP_solver.ABC;
 
 import java.util.ArrayList;
 import java.util.Collections;

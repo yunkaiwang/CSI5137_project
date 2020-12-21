@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import TSP_solver.ABC.BeeColony;
 import TSP_solver.ACO.AntColony;
-import TSP_solver.BCO.BeeColony;
 import TSP_solver.Exception.InvalidFileException;
 import TSP_solver.Exception.NoInputException;
-import TSP_solver.PCO.ParticleSwarm;
+import TSP_solver.PSO.ParticleSwarm;
 import TSP_solver.SimpleAlgorithms.*;
 
 public class TSPSolver {
