@@ -16,8 +16,6 @@ public class BeeColony implements Algorithm {
 	
 	private ArrayList<Bee> foodSources;
 	private Route bestRoute;
-	private int numCity;
-	
 	private static int randomExclusiveNumber(int bound, int exp) {
 		int r = -1;
 		
@@ -69,7 +67,7 @@ public class BeeColony implements Algorithm {
 					worked = true;
 				}
 				
-				j = (j+1)%this.numCity;
+				j = (j+1)%NUM_BEE;
 			}
 		}
 	}
@@ -127,7 +125,7 @@ public class BeeColony implements Algorithm {
 	@Override
 	public Route solveTSP(ArrayList<City> cities) throws Exception {
 		this.bestRoute = null;
-		this.numCity = cities.size();
+		cities.size();
 		
 		this.foodSources = new ArrayList<Bee>();
 		

@@ -146,11 +146,15 @@ public class Ant implements Comparable<Ant> {
 				current_prob_sum += Math.pow(pheromone[this.currentCityIndex][i], alpha) *
 						Math.pow(1/this.cities.get(this.currentCityIndex).distance(this.cities.get(i)), beta) /
 						sum_pheromone;
-				if (current_prob_sum > prob)
+				if (current_prob_sum >= prob)
 					return i;
 			}
 		}
 		
+		for (int i=0; i<numCities;++i) {
+			if (!this.visitedCity(i))
+				return i;
+		}
 		return -1;
 	}
 

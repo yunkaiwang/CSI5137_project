@@ -7,6 +7,7 @@ import TSP_solver.City;
 import TSP_solver.Route;
 import TSP_solver.Swap;
 import TSP_solver.Exception.SolveTSPFailedException;
+import TSP_solver.SimpleAlgorithms.HillClimb;
 
 public class Particle {
 	private static final Random rand = new Random();
@@ -22,7 +23,10 @@ public class Particle {
 	
 	public Particle(ArrayList<City> cities) throws SolveTSPFailedException {
 		this.cities = cities;
-		this.route = Route.generateRandomRoute(cities);
+		HillClimb hc = new HillClimb();
+		Route randRoute = Route.generateRandomRoute(cities);
+		hc.hillClimb(randRoute, 5000);
+		this.route = hc.getBestRoute();
 		this.pbest = this.route;
 		this.initializeVelocity();
 	}
